@@ -33,7 +33,7 @@ Get-Job
 $Job = Get-Job -Id 47
 
 
-# To view the output of a completed job:
+# To view the output of a completed job
 
 Receive-Job -Id 47
 Receive-Job -Job $Job
@@ -44,6 +44,7 @@ $Job | Receive-Job
 
 $Output = Receive-Job -Job $Job
 $Output = Receive-Job -Id 47
+$Output = Get-Job | ForEach-Object { if($_.Name -eq "Job9") {Receive-Job -Id $_.Id -Keep} } #Jobs with other condition, Where-Object is usable as well
 
 
 # When the output of a job is received, that data is deleted by default.
@@ -68,7 +69,7 @@ $Job | Stop-Job
 Remove-Job -Id 47
 Remove-Job -Job $Job
 $Job | Remove-Job
-
+Get-Job | Remove-Job
 
 # On PowerShell 3.0 and later, a user can define a trigger for a 
 # scheduled background job to run as that user even when that

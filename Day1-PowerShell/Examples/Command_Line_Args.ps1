@@ -47,7 +47,7 @@ $word * $number
 
 
 
-param ($animal, [Switch] $list)
+param ($animal, [Switch] $list)  # MyFunction -MySwitch means $MySwitch is $true, otherwise $MySwitch is $false
 if ($list) { $animal.toupper() } else { $animal.tolower() } 
 
 

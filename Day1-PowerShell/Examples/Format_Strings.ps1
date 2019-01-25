@@ -30,7 +30,7 @@ $data = @("Hello","World")
 
 
 
-[String]::Format( "{1} {0}", $data )
+[String]::Format( "{0} {1}", $data )
 #Output: Hello World
 
 
@@ -93,9 +93,9 @@ $figures | foreach-object {  "{0,12:C}" -f $_  }
 #       $0.54
 
 
-
+# % alias for foreach-object
 $figures = @(282.13,82921.44,2.015,2848.99,.544)
-$figures | foreach-object { $_.ToString("$###,##0.00") }
+$figures | % { $_.ToString("$###,##0.00") }
 #Output:
 #  $282.13
 #  $82,921.44
